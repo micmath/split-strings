@@ -1,16 +1,18 @@
-splitargs
+split-strings
 ==========
 Splits strings into tokens by given separator except treating quoted part as a single token.
 
+_This repo is a clone of elgs/splitargs `splitargs` project with the Flamenco/splitargs updates merged in to allow escaped characters._
+
 #Installation
-`npm install splitargs`
+`npm install split-strings`
 
 #Usage
 ```javascript
-var splitargs = require('splitargs');
+var splitStrings = require('split-strings');
 
 var i1 = "I said 'I am sorry.', and he said \"it doesn't matter.\"";
-var o1 = splitargs(i1);
+var o1 = splitStrings(i1);
 console.log(o1);
 /*
 [ 'I',
@@ -23,7 +25,7 @@ console.log(o1);
 */
 
 var i2 = "I said \"I am sorry.\", and he said \"it doesn't matter.\"";
-var o2 = splitargs(i2);
+var o2 = splitStrings(i2);
 console.log(o2);
 /*
 [ 'I',
@@ -36,7 +38,7 @@ console.log(o2);
 */
 
 var i3 = 'I said "I am sorry.", and he said "it doesn\'t matter."';
-var o3 = splitargs(i3);
+var o3 = splitStrings(i3);
 console.log(o3);
 /*
 [ 'I',
@@ -49,7 +51,7 @@ console.log(o3);
 */
 
 var i4 = 'I said \'I am sorry.\', and he said "it doesn\'t matter."';
-var o4 = splitargs(i4);
+var o4 = splitStrings(i4);
 console.log(o4);
 /*
 [ 'I',
@@ -62,14 +64,14 @@ console.log(o4);
 */
 
 var i5 = 'I\\ said\\ it\\ matters.';
-var o5 = splitargs(i5);
+var o5 = splitStrings(i5);
 console.log(o5);
 /*
 [ 'I said it matters.' ]
 */
 
 var i6 = 'What\\\'s the matter?';
-var o6 = splitargs(i6);
+var o6 = splitStrings(i6);
 console.log(o6);
 /*
 [ 'What\'s', 

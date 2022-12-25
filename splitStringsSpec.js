@@ -5,9 +5,9 @@
 (function () {
     "use strict";
 
-    var splitargs = require('./splitargs.js');
+    var splitStrings = require('./index.js');
 
-    describe('splitargs Suite', function () {
+    describe('splitStrings Suite', function () {
         beforeEach(function () {
         });
         afterEach(function () {
@@ -15,7 +15,7 @@
 
         it('should split double quoted string', function () {
             var i = " I  said 'I am sorry.', and he said \"it doesn't matter.\" ";
-            var o = splitargs(i);
+            var o = splitStrings(i);
             expect(7).toBe(o.length);
             expect(o[0]).toBe("I");
             expect(o[1]).toBe("said");
@@ -28,7 +28,7 @@
 
         it('should split pure double quoted string', function () {
             var i = "I said \"I am sorry.\", and he said \"it doesn't matter.\"";
-            var o = splitargs(i);
+            var o = splitStrings(i);
             expect(o.length).toBe(7);
             expect(o[0]).toBe("I");
             expect(o[1]).toBe("said");
@@ -41,7 +41,7 @@
 
         it('should split single quoted string', function () {
             var i = 'I said "I am sorry.", and he said "it doesn\'t matter."';
-            var o = splitargs(i);
+            var o = splitStrings(i);
             expect(o.length).toBe(7);
             expect(o[0]).toBe("I");
             expect(o[1]).toBe("said");
@@ -54,7 +54,7 @@
 
         it('should split pure single quoted string', function () {
             var i = 'I said \'I am sorry.\', and he said "it doesn\'t matter."';
-            var o = splitargs(i);
+            var o = splitStrings(i);
             expect(o.length).toBe(7);
             expect(o[0]).toBe("I");
             expect(o[1]).toBe("said");
@@ -67,19 +67,19 @@
 
         it('should split to 4 empty strings', function () {
             var i = ',,,';
-            var o = splitargs(i, ',', true);
+            var o = splitStrings(i, ',', true);
             expect(o.length).toBe(4);
         })
 
         it('should allow space if escaped', function () {
             var i = 'I\\ said\\ it\\ matters';
-            var o = splitargs(i, ' ', true);
+            var o = splitStrings(i, ' ', true);
             expect(o.length).toBe(1);
         })
 
         it('should allow same quote inside quote if escaped', function () {
             var i = 'What\\\'s the matter?';
-            var o = splitargs(i, ' ', true);
+            var o = splitStrings(i, ' ', true);
             expect(o.length).toBe(3);
             expect(o[0]).toBe("What's");
             expect(o[1]).toBe("the");

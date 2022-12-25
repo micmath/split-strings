@@ -4,7 +4,7 @@
   "description": "Splits strings into tokens by given separator except treating quoted part as a single token.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npx jasmine ./splitStringsSpec.js"
   },
   "repository": {
     "type": "git",
@@ -16,7 +16,9 @@
     "quoted",
     "space"
   ],
-  "author": "Elgs Chen",
+  "author": [
+    "Elgs Chen", "Flamenco"
+  ],
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/thehipbit/split-strings/issues"
