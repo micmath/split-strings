@@ -1,13 +1,14 @@
 split-strings
 ==========
+
 Splits strings into tokens by given separator except treating quoted part as a single token.
 
 _This repo is a clone of elgs/splitargs `splitargs` project with the Flamenco/splitargs updates merged in to allow escaped characters._
 
-#Installation
+## Installation
 `npm install split-strings`
 
-#Usage
+## Usage
 ```javascript
 var splitStrings = require('split-strings');
 
